@@ -1,0 +1,6 @@
+[tool.pytest.ini_options]
+# Tell pytest where to look for tests
+testpaths = ["tests"]
+
+# Add the project root to sys.path so 'from app.main import app' works
+pythonpath = ["."]
