@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=
+version: 1
+description: Default policies for the LLM Guardrails Gateway
+
+rules:
+
+  - name: no_competitor_mentions
+    type: keyword_block
+    severity: block
+    keywords:
+      - Globex
+      - Initech
+      - Umbrella Corp
+      - Acme
+    detail: "Mentions of competitors are not permitted"
+
+  - name: no_medical_advice
+    type: topic_block
+    severity: block
+    keywords:
+      - prescribe
+      - prescription
+      - diagnose
+      - dosage
+      - mg
+      - symptoms of
+    detail: "Medical advice is outside the scope of this assistant"
+
+  - name: no_legal_advice
+    type: topic_block
+    severity: block
+    keywords:
+      - sue
+      - lawsuit
+      - legal action
+      - attorney
+      - statute of limitations
+    detail: "Legal advice is outside the scope of this assistant"
+
+  - name: stay_on_topic_customer_service
+    type: required_topic
+    severity: block
+    keywords:
+      - refund
+      - shipping
+      - return
+      - order
+      - account
+      - warranty
+      - delivery
+      - cancel
+      - subscription
+      - product
+    detail: "Question is outside the scope of customer service"
