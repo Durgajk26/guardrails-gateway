@@ -85,8 +85,7 @@ uvicorn app.main:app --reload
 
 A real attack getting blocked, end-to-end through the Dockerised gateway:
 
-![Docker demo: image build, container running, health check, prompt injection blocked]
-![alt text](image.png)
+![Docker demo: image build, container running, health check, prompt injection blocked](docs/docker-demo.png)
 
 The screenshot above shows the full flow: image builds successfully → container starts → health check responds → a `Ignore previous instructions` attack hits `/guard` and is blocked at Layer 1 with a `prompt_injection` violation. The LLM is never called.
 
